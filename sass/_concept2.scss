@@ -1,0 +1,65 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.concept2 {
+}
+
+.concept2__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+
+  @include bp.mq(md) {
+    flex-direction: row-reverse;
+    gap: calc(80px / 1200px * 100%);
+
+    align-items: center;
+  }
+}
+
+.inner {
+}
+
+.concept2__image {
+  text-align: center;
+  @include bp.mq(md) {
+    width: calc(600px / 1200px * 100%);
+    flex-shrink: 0;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.concept2__message {
+  @include bp.mq(md) {
+    flex-grow: 1;
+  }
+}
+
+.concept2__title {
+  font-size: 20px;
+  font-weight: var.$font-weight-bold;
+
+  @include bp.mq(md) {
+    font-size: 21px;
+  }
+  @include bp.mq(lg) {
+    font-size: 25px;
+  }
+
+  @include bp.mq(xl) {
+    font-size: 28px;
+  }
+}
+
+.concept2__text {
+  margin-top: 22px;
+  font-size: 14px;
+  font-weight: var.$font-weight-light;
+
+  @include bp.mq(md) {
+    margin-top: 36px;
+    font-size: var.$font-size-base;
+  }
+}

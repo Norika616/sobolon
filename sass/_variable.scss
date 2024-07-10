@@ -1,0 +1,134 @@
+@use "breakpoints" as bp;
+// 変数の定義
+
+$breakpoints: (
+  sm: "screen and (min-width: 600px)",
+  md: "screen and (min-width: 768px)",
+  lg: "screen and (min-width: 900px)",
+  xl: "screen and (min-width: 1000px)",
+);
+
+$main-color: #3ea1d1;
+
+$text-color: #333333;
+
+$font-family: "Noto Serif JP", serif;
+
+$font-size-base: 16px;
+
+$line-height-base: 1.7;
+
+$font-weight-light: 300;
+
+$font-weight-bold: 600;
+
+$header-height-sp: 60px;
+
+$header-height-pc: 70px;
+
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: $header-height-sp;
+  @include bp.mq(md) {
+    scroll-padding-top: $header-height-pc;
+
+  }
+}
+body {
+  font-family: $font-family;
+  color: $text-color;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+// インナー
+.inner {
+  padding-inline: 15px;
+  @include bp.mq(md) {
+    max-width: calc(1200px + 40px * 2);
+    margin-inline: auto;
+    padding-inline: 40px;
+  }
+}
+
+// セクション間の余白
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+
+  @include bp.mq(md) {
+    gap: 160px;
+  }
+}
+
+// 見出し
+.heading {
+  font-size: 30px;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  align-items: center;
+
+  &.is--contact {
+    color: $main-color;
+  }
+  &::after {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: $main-color;
+  }
+
+  @include bp.mq(md) {
+    font-size: 40px;
+    gap: calc(24px - 0.5px);
+  }
+}
+
+// 見出しとコンテンツ間の余白
+.section__content {
+  margin-top: calc(46px - 0.5px);
+  @include bp.mq(md) {
+    margin-top: calc(64px - 0.5px);
+  }
+}
+
+// ボタン
+.button {
+  display: inline-block;
+  text-align: center;
+  min-width: 158px;
+  color: $main-color;
+  background: #fff;
+  border: 1px solid $main-color;
+  padding: calc(12px - 1px) calc(4px - 1px);
+  font-size: 14px;
+  font-weight: $font-weight-light;
+  letter-spacing: 0.02px;
+  transition: color 0.3s, background-color 0.3s;
+
+  &:hover {
+    background-color: $main-color;
+    color: #fff;
+  }
+}
+
+@include bp.mq(md) {
+  .hidden-md {
+    display: none;
+  }
+}
+
+.attention {
+  font-size: 10px;
+  color: #e7728e;
+  font-weight: $font-weight-bold;
+
+  &.attention__head {
+    font-size: 14px;
+  }
+}

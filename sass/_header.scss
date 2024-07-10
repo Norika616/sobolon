@@ -1,0 +1,135 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.header {
+  height: var.$header-height-sp;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  background: #fff;
+  @include bp.mq(md) {
+    height: var.$header-height-pc;
+
+  }
+}
+
+.header__inner {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  a {
+    img {
+      display: block;
+      width: 120px;
+    }
+  }
+}
+
+.header__nav {
+  position: fixed;
+  background: var.$main-color;
+  width: 270px;
+  height: calc(100% - var.$header-height-sp);
+  right: 0;
+  top: var.$header-height-sp;
+  padding: calc(40px - 8px) 15px;
+  transform: translateX(100%);
+  transition: transform 0.4s;
+
+  &.is-checked {
+    transform: translateX(0);
+  }
+
+  @include bp.mq(md) {
+    background: transparent;
+    height: auto;
+    width: auto;
+    position: static;
+    padding: 0;
+    transform: translateX(0);
+  }
+}
+
+.header__lists {
+  display: flex;
+  flex-direction: column;
+  gap: calc(32px - 8px * 2);
+  align-items: flex-end;
+
+  @include bp.mq(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: 46px;
+  }
+}
+
+.header__list {
+}
+
+.header__link {
+  display: inline-block;
+  padding-block: 8px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: var.$font-weight-light;
+
+  @include bp.mq(md) {
+    color: var.$text-color;
+    font-size: var.$font-size-base;
+  }
+}
+
+.header__open {
+  @include bp.mq(md) {
+    display: none;
+  }
+}
+
+.drawer-icon {
+  width: 30px;
+  height: 18px;
+  position: relative;
+
+  &.is-checked {
+    .drawer-icon__bar {
+      &:nth-child(1),
+      &:nth-child(3) {
+        top: 8px;
+      }
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.drawer-icon__bar {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var.$main-color;
+  transition: top 0.4s, transform 0.4s;
+
+  &:nth-child(1) {
+    top: 0;
+  }
+  &:nth-child(2) {
+    top: 8px;
+  }
+  &:nth-child(3) {
+    top: 16px;
+  }
+}

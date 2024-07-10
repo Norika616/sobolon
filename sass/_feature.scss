@@ -1,0 +1,53 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.feature {
+}
+
+.section {
+}
+
+.feature__inner {
+}
+
+.feature__content {
+}
+
+.feature__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
+  @include bp.mq(md) {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  @include bp.mq(lg) {
+    gap: 60px;
+  }
+
+  @include bp.mq(xl) {
+    gap: 90px;
+  }
+}
+
+.feature__card {
+  background: #fff;
+  box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
+
+}
+
+.feature-card {
+}
+
+.feature-card__image {
+  img {
+    width: 100%;
+  }
+}
+
+.feature-card-body {
+  padding: 26px;
+  text-align: center;
+  font-weight: var.$font-weight-bold;
+}

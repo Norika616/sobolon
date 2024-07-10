@@ -1,0 +1,59 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.about {
+  padding-block: 180px 50px;
+  position: relative;
+  background: url(../img/sp/bg-sp.jpg) no-repeat top center / cover;
+
+  @include bp.mq(md) {
+    padding-block: 123px 122px;
+  }
+
+  @include bp.mq(md) {
+    background: url(../img/bg-pc.jpg) no-repeat top center / cover;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.12);
+    z-index: 1;
+  }
+}
+
+.about__inner {
+}
+
+.about__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  @include bp.mq(md) {
+    width: calc(600px / 1200px * 100%);
+  }
+}
+
+.about__title {
+  margin-top: 1px;
+  font-size: 20px;
+  font-weight: var.$font-weight-bold;
+
+  @include bp.mq(md) {
+    font-size: 22px;
+  }
+}
+
+.about__text {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: var.$font-weight-bold;
+
+  @include bp.mq(md) {
+    font-size: var.$font-size-base;
+  }
+}

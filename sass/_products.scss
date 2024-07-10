@@ -1,0 +1,82 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.products {
+}
+
+.products__inner {
+  padding-inline: 56px;
+  @include bp.mq(md) {
+    max-width: calc(940px + 40px * 2);
+    padding-inline: 40px;
+    margin-inline: auto;
+  }
+}
+
+.heading {
+}
+
+.section__head {
+}
+
+.products__content {
+  margin-top: 59.5px;
+}
+
+.section__content {
+}
+
+.products__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
+  align-items: center;
+
+  @include bp.mq(md) {
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  @include bp.mq(lg) {
+    gap: 80px;
+  }
+}
+
+.products__card {
+}
+
+.products-card {
+}
+
+.products-card__image {
+  img {
+    width: 260px;
+    display: block;
+  }
+}
+
+.products-card__body {
+  font-size: 14px;
+  font-weight: var.$font-weight-light;
+}
+
+.products-card__text {
+  margin-top: 20px;
+
+  @include bp.mq(md) {
+    margin-top: 18px;
+  }
+}
+
+.products-card-price {
+  margin-top: 10px;
+  color: #989898;
+}
+
+.products__button {
+  margin-top: 42px;
+  text-align: center;
+  @include bp.mq(md) {
+    margin-top: 48px;
+  }
+}

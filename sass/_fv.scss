@@ -1,0 +1,51 @@
+@use "_variable.scss" as var;
+@use "_breakpoints.scss" as bp;
+
+.fv {
+}
+
+.fv__inner {
+  position: relative;
+}
+
+.fv__image {
+  @include bp.mq(md) {
+    max-width: 990px;
+    margin-left: auto;
+    display: block;
+  }
+  img {
+  }
+}
+
+.fv__message {
+  margin-top: 30px;
+
+  @include bp.mq(md) {
+    position: absolute;
+    inset-block: 0;
+    margin-block: auto;
+    left: 0;
+    height: fit-content;
+    padding: 80px 40px;
+    background: #fff;
+  }
+
+}
+
+.fv__title {
+  font-size: 26px;
+  font-weight: var.$font-weight-bold;
+
+  br {
+    display: none;
+    @include bp.mq(md) {
+      display: inline;
+    }
+  }
+}
+
+.fv__text {
+  margin-top: 16px;
+  font-weight: var.$font-weight-light;
+}
